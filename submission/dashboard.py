@@ -325,7 +325,7 @@ if page == "Dashboard Analysis":
     # --- Attribution ---
     st.sidebar.divider()
     st.sidebar.markdown(
-        "**Created by: [Rasya Radja]**\\n\\n"
+        "**Created by: [Rasya Radja]**\n"
         "[LinkedIn Profile](https://www.linkedin.com/in/rasyaradja/)"
     )
 
