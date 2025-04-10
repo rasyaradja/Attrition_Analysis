@@ -131,9 +131,9 @@ def load_data():
         df_cleaned = df.dropna(subset=['Attrition']).copy()
 
         if df_cleaned.empty:
-                st.error(
+            st.error(
                 "Dataframe is empty after dropping rows with missing Attrition.")
-                return None
+            return None
 
         # Ensure Attrition is integer after potential float conversion
         df_cleaned['Attrition'] = df_cleaned['Attrition'].astype(int)
@@ -315,7 +315,7 @@ if page == "Dashboard Analysis":
     st.sidebar.header("Filter Analysis Scope")
     # Allow filtering, but keep it minimal for exec view
     all_departments = sorted(df_base['Department'].unique().tolist())
-        selected_departments = st.sidebar.multiselect(
+    selected_departments = st.sidebar.multiselect(
         'Department(s)', all_departments, default=all_departments)
 
     all_job_levels = sorted(df_base['JobLevel'].unique().tolist())
@@ -325,7 +325,7 @@ if page == "Dashboard Analysis":
     # --- Attribution ---
     st.sidebar.divider()
     st.sidebar.markdown(
-        "**Created by: [Rasya Radja]**\n\n"
+        "**Created by: [Rasya Radja]**\\n\\n"
         "[LinkedIn Profile](https://www.linkedin.com/in/rasyaradja/)"
     )
 
@@ -514,11 +514,11 @@ if page == "Dashboard Analysis":
                         if es_top_roles_low_med > es_overall_low_med * 1.1:
                             insight_text += f"\n- **Higher proportion reporting Low/Medium Environment Satisfaction:** ({es_top_roles_low_med:.1f}% vs {es_overall_low_med:.1f}%) "
                         st.markdown(insight_text)
-        else:
+                    else:
                         st.info(
                             "Not enough comparable data available for these roles.")
-    else:
-        st.warning(
+                else:
+                    st.warning(
                         "No employees found in the identified top roles (check filters).")
 
             # Expander for All Job Roles Chart
@@ -695,8 +695,8 @@ if page == "Dashboard Analysis":
                     else:
                         st.warning(
                             "No valid Promotion Gap data to plot after filtering.")
-        else:
-            st.warning(
+                else:
+                    st.warning(
                         "Promotion Gap data unavailable for calculation.")
             else:
                 st.warning("'YearsSinceLastPromotion' data unavailable.")
@@ -722,7 +722,7 @@ elif page == "Predict Attrition":
         with result_placeholder.container():
             st.subheader("Prediction Result")
             if st.session_state.prediction_result == 1:
-    st.warning(
+                st.warning(
                     f"**Prediction: Likely to Leave (Attrition = Yes)**")
                 st.metric(label="Predicted Probability of Leaving",
                           value=f"{st.session_state.prediction_proba*100:.1f}%")
