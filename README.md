@@ -6,7 +6,7 @@ This project addresses the challenge of high employee attrition faced by the HR 
 
 ## Data
 
-*   **Source:** The analysis is based on a cleaned employee dataset containing various demographic, job-related, compensation, and satisfaction metrics.
+*   **Source:** The analysis is based on a cleaned employee dataset containing various demographic, job-related, compensation, and satisfaction metrics from [Here](https://github.com/dicodingacademy/dicoding_dataset/tree/main/employee).
 *   **Connection:** The deployed Streamlit dashboard connects directly to a **Supabase** database table (`cleaned_employee_data`) to fetch the latest data for analysis and visualization. This ensures the dashboard reflects the most current information available in the database.
 *   **Key Features Used:** Age, OverTime, MonthlyIncome, JobRole, JobSatisfaction, EnvironmentSatisfaction, WorkLifeBalance, YearsAtCompany, YearsSinceLastPromotion, Department, JobLevel, BusinessTravel, DistanceFromHome, etc.
 
@@ -29,7 +29,7 @@ This project addresses the challenge of high employee attrition faced by the HR 
 
 ## Dashboard Features
 
-The Streamlit application provides two main pages:
+The [Streamlit application](https://attritionrate-rasya.streamlit.app/) provides two main pages:
 
 1.  **Dashboard Analysis:**
     *   **Executive KPIs:** Displays Overall Attrition Rate, Overtime Risk Factor (difference in attrition rate), and Median Income Gap between leavers and stayers.
@@ -58,7 +58,7 @@ The Streamlit application provides two main pages:
 
 **1. Local Setup:**
 
-*   Clone the repository: `git clone <repository_url>`
+*   Clone the repository: `git clone https://github.com/rasyaradja/Attrition_Analysis`
 *   Navigate to the project directory.
 *   Install required packages: `pip install -r submission/requirements.txt`
 *   **Configure Supabase Credentials:**
@@ -75,7 +75,21 @@ The Streamlit application provides two main pages:
 
 **2. Deployment (Streamlit Community Cloud):**
 
-* 
+*   **Prerequisites:**
+    *   A GitHub account.
+    *   Your project code (including `submission/dashboard.py`, `submission/requirements.txt`, `submission/model/logistic_regression_pipeline.joblib`, `.gitignore` but **excluding** `.streamlit/secrets.toml`) pushed to a GitHub repository.
+    *   A Supabase account and project with the `cleaned_employee_data` table populated and RLS configured to allow reads for the `anon` role.
+*   **Steps:**
+    1.  Go to [share.streamlit.io](https://share.streamlit.io/) and log in with your GitHub account.
+    2.  Click "**New app**" and choose "**From existing repo**".
+    3.  Select the GitHub repository and the branch containing your latest code.
+    4.  Set the "**Main file path**" to `submission/dashboard.py`.
+    5.  Click "**Advanced settings...**".
+    6.  Navigate to the "**Secrets**" section.
+    7.  Copy the *entire contents* of your **local** `submission/.streamlit/secrets.toml` file (containing your actual Supabase URL and Key) and paste it into the secrets text box.
+    8.  Click "**Save**" for the secrets.
+    9.  Click "**Deploy!**". Streamlit will build the environment and deploy your application.
+*   [Link to current deployed version](https://attritionrate-rasya.streamlit.app/)
 
 ## Creator
 
